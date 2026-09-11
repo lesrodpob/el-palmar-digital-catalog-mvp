@@ -517,12 +517,11 @@ input {
 }
 
 .cart-close {
-    position: absolute;
-    top: 25px;
-    right: 24px;
-    z-index: 3;
+    position: static;
+    flex: none;
     width: 34px;
     height: 34px;
+    margin-left: 8px;
     border: 1px solid #e3ddd1;
     border-radius: 50%;
     background: #fff;
@@ -1046,10 +1045,9 @@ input {
     }
 
     .cart-close {
-        top: 19px;
-        right: 20px;
         width: 32px;
         height: 32px;
+        margin-left: 6px;
         font-size: 21px;
     }
 
