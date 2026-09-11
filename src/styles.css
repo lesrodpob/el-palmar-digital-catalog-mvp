@@ -517,11 +517,12 @@ input {
 }
 
 .cart-close {
-    position: static;
-    flex: none;
+    position: absolute;
+    top: 25px;
+    right: 24px;
+    z-index: 3;
     width: 34px;
     height: 34px;
-    margin-left: 8px;
     border: 1px solid #e3ddd1;
     border-radius: 50%;
     background: #fff;
@@ -1045,30 +1046,58 @@ input {
     }
 
     .cart-close {
+        top: 19px;
+        right: 20px;
         width: 32px;
         height: 32px;
-        margin-left: 6px;
         font-size: 21px;
     }
 
     .cart-toggle {
         top: auto;
+        left: 50%;
+        right: auto;
         bottom: 16px;
-        transform: none;
+        transform: translateX(-50%);
+        width: min(78vw, 330px);
+        min-width: 0;
         height: 58px;
-        min-width: 54px;
-        padding: 8px 9px;
-        border-radius: 12px 0 0 12px;
+        padding: 8px 14px;
+        border-radius: 30px;
+        flex-direction: row;
+        gap: 12px;
+        justify-content: center;
+        box-shadow: 0 6px 22px #20382a30;
     }
 
     .cart-toggle span {
-        font-size: 11px;
+        writing-mode: horizontal-tb;
+        transform: none;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0;
+    }
+
+    .cart-toggle-whatsapp {
+        color: #fff;
+        flex: none;
     }
 
     .cart-toggle b {
-        min-width: 25px;
-        height: 25px;
+        min-width: 26px;
+        height: 26px;
         font-size: 11px;
+        margin-left: 2px;
+    }
+
+    /* Reserve space so the fixed order button never covers
+       the last products or the pagination controls. */
+    .main {
+        padding-bottom: 82px;
+    }
+
+    .content {
+        padding-bottom: 90px;
     }
 
     .cart-head {
@@ -1225,5 +1254,15 @@ input {
 
     .cart {
         width: 94vw;
+    }
+
+    .cart-toggle {
+        width: min(82vw, 320px);
+        bottom: 14px;
+        height: 56px;
+    }
+
+    .content {
+        padding-bottom: 92px;
     }
 }

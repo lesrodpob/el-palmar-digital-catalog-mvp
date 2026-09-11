@@ -509,26 +509,25 @@ ${lines.join("\n")}
           onClick={() => setCartOpen(true)}
           aria-label={`Ver pedido, ${cartUnits} productos`}
         >
-          <ShoppingCart size={21} />
+          <ShoppingCart size={23} />
           <span>Ver pedido</span>
+          <MessageCircle className="cart-toggle-whatsapp" size={24} />
           <b>{cartUnits}</b>
         </button>
       )}
 
       <aside className={`cart ${cartOpen ? "cart-open" : ""}`}>
+        <button
+          className="cart-close"
+          onClick={() => setCartOpen(false)}
+          aria-label="Cerrar pedido"
+        >
+          ×
+        </button>
         <div className="notice"><Truck size={17} /> <span>Despachos gratis sobre $50.000 en Limache y alrededores</span></div>
         <div className="cart-box">
           <div className="cart-head">
-            <ShoppingCart size={32} />
-            <strong>Tu pedido</strong>
-            <span>{cartUnits}</span>
-            <button
-              className="cart-close"
-              onClick={() => setCartOpen(false)}
-              aria-label="Cerrar pedido"
-            >
-              ×
-            </button>
+            <ShoppingCart size={32} /><strong>Tu pedido</strong><span>{cartUnits}</span>
           </div>
           <div className="cart-items">
             {cart.length === 0 ? <p>Tu pedido aparecerá aquí.</p> : cart.map(item => (
