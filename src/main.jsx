@@ -155,8 +155,25 @@ function App() {
   }, [products, selectedCategory, selectedFamily, search, searchCategory]);
 
   const cartUnits = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const iceUnits = cart
-    .filter(item => item.family.toLowerCase() === "hielos")
+
+  // Descuento de hielo por formato:
+  // - Hielo de 2 kg: desde 30 bolsas -> $100 menos por bolsa.
+  // - Hielo de 1 kg: desde 50 bolsas -> $100 menos por bolsa.
+  // Cada formato se calcula por separado.
+  const ice2kgUnits = cart
+    .filter(
+      item =>
+        item.family.toLowerCase() === "hielos" &&
+        /2\s*(kg|kl)/i.test(item.name)
+    )
+    .reduce((sum, item) => sum + item.quantity, 0);
+
+  const ice1kgUnits = cart
+    .filter(
+      item =>
+        item.family.toLowerCase() === "hielos" &&
+        /1\s*(kg|kl)/i.test(item.name)
+    )
     .reduce((sum, item) => sum + item.quantity, 0);
 
   const cartSubtotal = cart.reduce(
@@ -164,7 +181,10 @@ function App() {
     0
   );
 
-  const iceDiscount = iceUnits >= 30 ? iceUnits * 100 : 0;
+  const iceDiscount =
+    (ice2kgUnits >= 30 ? ice2kgUnits * 100 : 0) +
+    (ice1kgUnits >= 50 ? ice1kgUnits * 100 : 0);
+
   const cartTotal = cartSubtotal - iceDiscount;
 
   const PRODUCTS_PER_PAGE = 24;
@@ -329,10 +349,14 @@ ${lines.join("\n")}
                   p => p.family.toLowerCase() === "hielos"
                 ) && (
                   <div className="ice-deal">
-                    <Snowflake size={19} />
+                    <Snowflake size={30} />
                     <div>
-                      <strong>Precio especial en hielo</strong>
-                      <span>Desde 30 bolsas: $100 de descuento por bolsa.</span>
+                      <strong> $100 descuento por volumen en HIELO!!
+                     <br />
+                        2 kg: desde 30 bolsas
+                        <br />
+                        1 kg: desde 50 bolsas
+                      </strong>
                     </div>
                   </div>
                 )}

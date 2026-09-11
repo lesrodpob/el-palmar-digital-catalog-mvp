@@ -195,7 +195,7 @@ input {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 12px;
 }
 
@@ -291,7 +291,7 @@ input {
    ========================= */
 
 .promo-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 14px;
     margin-bottom: 6px;
 }
@@ -841,7 +841,7 @@ input {
 
     .product-grid,
     .promo-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .cart {
@@ -860,14 +860,17 @@ input {
         overflow: hidden;
     }
 
+    /* Fixed category bar: it stays visible while the catalog scrolls */
     .sidebar {
         width: 100%;
         height: 58px;
         min-height: 58px;
         padding: 8px 10px;
-        position: sticky;
+        position: fixed;
         top: 0;
-        z-index: 10;
+        left: 0;
+        right: 0;
+        z-index: 30;
         overflow: hidden;
         display: block;
     }
@@ -912,7 +915,8 @@ input {
 
     .main {
         width: 100%;
-        height: calc(100vh - 58px);
+        height: 100vh;
+        padding-top: 58px;
         overflow-y: auto;
         overflow-x: hidden;
     }
@@ -960,27 +964,23 @@ input {
 
     .product-grid,
     .promo-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
     }
 
-    .card {
-        grid-template-columns: 86px minmax(0, 1fr);
-        min-height: 138px;
-        padding: 10px;
-    }
-
+    .card,
     .promo-grid .card {
-        grid-template-columns: 90px minmax(0, 1fr);
-        min-height: 155px;
+        grid-template-columns: 1fr;
+        min-height: 0;
+        padding: 9px;
+        gap: 8px;
     }
 
+    .product-placeholder,
     .promo-grid .product-placeholder {
-        min-height: 135px;
-    }
-
-    .product-placeholder {
-        min-height: 112px;
+        width: 100%;
+        min-height: 118px;
+        aspect-ratio: 1 / 1;
     }
 
     .product-info b {
@@ -1167,7 +1167,8 @@ input {
     }
 
     .main {
-        height: calc(100vh - 54px);
+        height: 100vh;
+        padding-top: 54px;
     }
 
     .side-item {
@@ -1201,27 +1202,22 @@ input {
 
     .product-grid,
     .promo-grid {
-        gap: 10px;
-    }
-
-    .card {
-        grid-template-columns: 78px minmax(0, 1fr);
-        min-height: 128px;
-        padding: 9px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 9px;
     }
 
-    .product-placeholder {
-        min-height: 108px;
-    }
-
+    .card,
     .promo-grid .card {
-        grid-template-columns: 82px minmax(0, 1fr);
-        min-height: 145px;
+        grid-template-columns: 1fr;
+        min-height: 0;
+        padding: 8px;
+        gap: 7px;
     }
 
+    .product-placeholder,
     .promo-grid .product-placeholder {
-        min-height: 125px;
+        min-height: 105px;
+        aspect-ratio: 1 / 1;
     }
 
     .product-info button {
