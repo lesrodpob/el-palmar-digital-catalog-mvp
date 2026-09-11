@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import * as XLSX from "xlsx";
 import {
@@ -75,6 +75,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
+  const cartRef = useRef(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -97,6 +98,17 @@ function App() {
 
     return () => clearTimeout(timer);
   }, [search]);
+
+  useEffect(() => {
+    if (cartOpen) {
+      requestAnimationFrame(() => {
+        cartRef.current?.scrollTo({
+          top: 0,
+          behavior: "auto"
+        });
+      });
+    }
+  }, [cartOpen]);
 
   useEffect(() => {
     loadProductsFromExcel()
@@ -511,12 +523,23 @@ ${lines.join("\n")}
         >
           <ShoppingCart size={23} />
           <span>Ver pedido</span>
-          <MessageCircle className="cart-toggle-whatsapp" size={24} />
+          <span className="cart-toggle-whatsapp" aria-label="WhatsApp">
+            <svg
+              viewBox="0 0 32 32"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                fill="currentColor"
+                d="M16 3.2C8.94 3.2 3.2 8.94 3.2 16c0 2.28.6 4.42 1.74 6.28L3.2 28.8l6.7-1.7A12.74 12.74 0 0 0 16 28.8c7.06 0 12.8-5.74 12.8-12.8S23.06 3.2 16 3.2Zm0 23.3c-2.08 0-4.12-.56-5.9-1.62l-.42-.25-3.98 1.02 1.06-3.86-.28-.44A10.7 10.7 0 1 1 16 26.5Zm5.86-7.96c-.32-.16-1.88-.92-2.17-1.02-.29-.11-.5-.16-.72.16-.21.32-.82 1.02-1.01 1.23-.19.22-.37.24-.69.08-.32-.16-1.34-.49-2.55-1.57-.94-.84-1.57-1.88-1.75-2.2-.18-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.72-1.73-.98-2.37-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.1 1.08-1.1 2.64 0 1.56 1.13 3.07 1.29 3.28.16.21 2.23 3.4 5.4 4.77.75.32 1.34.52 1.8.67.76.24 1.45.21 2 .13.61-.09 1.88-.77 2.15-1.51.27-.75.27-1.39.19-1.52-.08-.13-.29-.21-.61-.37Z"
+              />
+            </svg>
+          </span>
           <b>{cartUnits}</b>
         </button>
       )}
 
-      <aside className={`cart ${cartOpen ? "cart-open" : ""}`}>
+      <aside ref={cartRef} className={`cart ${cartOpen ? "cart-open" : ""}`}>
         <div className="notice"><Truck size={17} /> <span>Despachos gratis sobre $50.000 en Limache y alrededores</span></div>
         <div className="cart-box">
           <div className="cart-head">

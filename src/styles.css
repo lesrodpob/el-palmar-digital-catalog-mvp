@@ -1041,7 +1041,18 @@ input {
         display: block;
         width: min(92vw, 390px);
         height: 100vh;
-        padding: 14px 8px;
+        padding: 68px 8px 14px;
+    }
+
+    .cart > .notice {
+        margin-top: 0;
+        margin-bottom: 12px;
+        min-height: 54px;
+        padding: 12px 13px;
+        font-size: 11px;
+        line-height: 1.35;
+        position: relative;
+        z-index: 1;
     }
 
     .cart-close {
@@ -1077,8 +1088,19 @@ input {
     }
 
     .cart-toggle-whatsapp {
+        width: 27px;
+        height: 27px;
         color: #fff;
         flex: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cart-toggle-whatsapp svg {
+        width: 27px;
+        height: 27px;
+        display: block;
     }
 
     .cart-toggle b {
@@ -1252,6 +1274,12 @@ input {
 
     .cart {
         width: 94vw;
+        padding-top: 64px;
+    }
+
+    .cart > .notice {
+        min-height: 52px;
+        font-size: 10.5px;
     }
 
     .cart-toggle {
