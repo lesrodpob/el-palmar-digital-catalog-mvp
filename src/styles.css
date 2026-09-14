@@ -3297,3 +3297,87 @@ input {
         font-size: 9px;
     }
 }
+
+/* =========================================================
+   MOBILE FINAL — BOTONES EN UNA SOLA FILA Y MÁS PEQUEÑOS
+   ========================================================= */
+
+@media (max-width: 850px) {
+    .info-modal-final .info-modal-actions {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        display: grid;
+        grid-template-columns: max-content max-content;
+        justify-content: end;
+        gap: 6px;
+        width: 100%;
+    }
+
+    .info-modal-final .info-whatsapp-button,
+    .info-modal-final .info-catalog-button {
+        width: auto;
+        min-width: 108px;
+        height: 30px;
+        min-height: 30px;
+        padding: 4px 8px;
+        border-radius: 8px;
+        font-size: 9px;
+        gap: 4px;
+    }
+
+    .info-modal-final .info-whatsapp-button svg,
+    .info-modal-final .info-catalog-button svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .info-modal-final .info-whatsapp-button span:last-child,
+    .info-modal-final .info-catalog-button span:last-child {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .info-modal-final .info-modal-actions {
+        grid-template-columns: max-content max-content;
+        justify-content: end;
+        gap: 5px;
+    }
+
+    .info-modal-final .info-whatsapp-button,
+    .info-modal-final .info-catalog-button {
+        min-width: 100px;
+        width: auto;
+        height: 29px;
+        min-height: 29px;
+        padding: 4px 7px;
+        font-size: 8.5px;
+        border-radius: 7px;
+    }
+
+    .info-modal-final .info-whatsapp-button svg,
+    .info-modal-final .info-catalog-button svg {
+        width: 13px;
+        height: 13px;
+    }
+
+    .info-modal-final .info-whatsapp-button span:last-child,
+    .info-modal-final .info-catalog-button span:last-child {
+        font-size: 9.5px;
+    }
+}
+
+@media (max-width: 380px) {
+    .info-modal-final .info-modal-actions {
+        gap: 4px;
+    }
+
+    .info-modal-final .info-whatsapp-button,
+    .info-modal-final .info-catalog-button {
+        min-width: 94px;
+        height: 28px;
+        min-height: 28px;
+        padding: 3px 6px;
+        font-size: 8px;
+    }
+}
