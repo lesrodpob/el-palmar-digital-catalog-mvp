@@ -274,7 +274,7 @@ function App() {
   function sendWhatsApp() {
     if (!cart.length) return;
 
-    const whatsappNumber = "2368802463";
+    const whatsappNumber = "988137633";
     const lines = cart.map(
       i => `• ${i.name} x${i.quantity} — ${money(i.price * i.quantity)}`
     );
