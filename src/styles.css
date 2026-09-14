@@ -3540,3 +3540,178 @@ input {
         font-size: 7.5px;
     }
 }
+
+/* =========================================================
+   CORRECCIÓN REAL MOBILE — FOOTER SIN SEGUNDA FILA
+   Los botones quedan físicamente al lado del texto.
+   ========================================================= */
+
+@media (max-width: 850px) {
+    .info-modal-final .info-modal-footer {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 7px !important;
+        padding: 9px 10px !important;
+        min-height: 50px !important;
+        height: auto !important;
+    }
+
+    .info-modal-final .info-footer-icon {
+        flex: 0 0 32px !important;
+        width: 32px !important;
+        height: 32px !important;
+        margin: 0 !important;
+    }
+
+    .info-modal-final .info-footer-copy {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        width: auto !important;
+        margin: 0 !important;
+    }
+
+    .info-modal-final .info-footer-copy strong {
+        font-size: 10px !important;
+        line-height: 1.15 !important;
+        white-space: nowrap !important;
+    }
+
+    .info-modal-final .info-footer-copy span {
+        font-size: 7.5px !important;
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
+    }
+
+    .info-modal-final .info-modal-actions {
+        display: flex !important;
+        flex: 0 0 auto !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 5px !important;
+        width: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Anula las reglas anteriores que mandaban los botones a otra fila */
+    .info-modal-final .info-whatsapp-button,
+    .info-modal-final .info-catalog-button {
+        grid-column: auto !important;
+        grid-row: auto !important;
+        flex: 0 0 auto !important;
+        width: 84px !important;
+        min-width: 84px !important;
+        max-width: 84px !important;
+        height: 30px !important;
+        min-height: 30px !important;
+        padding: 4px 5px !important;
+        border-radius: 8px !important;
+        font-size: 8.5px !important;
+        gap: 3px !important;
+        white-space: nowrap !important;
+    }
+
+    .info-modal-final .info-whatsapp-button svg,
+    .info-modal-final .info-catalog-button svg {
+        width: 14px !important;
+        height: 14px !important;
+        flex: none !important;
+    }
+
+    .info-modal-final .info-whatsapp-button span:last-child,
+    .info-modal-final .info-catalog-button span:last-child {
+        font-size: 10px !important;
+        margin-left: 0 !important;
+    }
+
+    .info-modal-final .info-catalog-button,
+    .info-modal-final .info-catalog-button span {
+        color: #31543b !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .info-modal-final .info-modal-footer {
+        gap: 5px !important;
+        padding: 8px !important;
+        min-height: 47px !important;
+    }
+
+    .info-modal-final .info-footer-icon {
+        flex-basis: 29px !important;
+        width: 29px !important;
+        height: 29px !important;
+    }
+
+    .info-modal-final .info-footer-copy strong {
+        font-size: 9px !important;
+    }
+
+    .info-modal-final .info-footer-copy span {
+        font-size: 7px !important;
+    }
+
+    .info-modal-final .info-modal-actions {
+        gap: 4px !important;
+    }
+
+    .info-modal-final .info-whatsapp-button,
+    .info-modal-final .info-catalog-button {
+        width: 76px !important;
+        min-width: 76px !important;
+        max-width: 76px !important;
+        height: 28px !important;
+        min-height: 28px !important;
+        padding: 3px 4px !important;
+        font-size: 8px !important;
+        border-radius: 7px !important;
+    }
+
+    .info-modal-final .info-whatsapp-button svg,
+    .info-modal-final .info-catalog-button svg {
+        width: 13px !important;
+        height: 13px !important;
+    }
+
+    .info-modal-final .info-whatsapp-button span:last-child,
+    .info-modal-final .info-catalog-button span:last-child {
+        font-size: 9px !important;
+    }
+}
+
+@media (max-width: 380px) {
+    .info-modal-final .info-modal-footer {
+        gap: 4px !important;
+        padding: 7px !important;
+    }
+
+    .info-modal-final .info-footer-icon {
+        flex-basis: 27px !important;
+        width: 27px !important;
+        height: 27px !important;
+    }
+
+    .info-modal-final .info-footer-copy strong {
+        font-size: 8.5px !important;
+    }
+
+    .info-modal-final .info-footer-copy span {
+        font-size: 6.5px !important;
+    }
+
+    .info-modal-final .info-modal-actions {
+        gap: 3px !important;
+    }
+
+    .info-modal-final .info-whatsapp-button,
+    .info-modal-final .info-catalog-button {
+        width: 68px !important;
+        min-width: 68px !important;
+        max-width: 68px !important;
+        height: 27px !important;
+        min-height: 27px !important;
+        padding: 3px !important;
+        font-size: 7.5px !important;
+    }
+}
