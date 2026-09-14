@@ -3381,3 +3381,162 @@ input {
         font-size: 8px;
     }
 }
+
+/* =========================================================
+   MOBILE FINAL — FOOTER COMPLETO EN UNA SOLA FILA
+   El footer mantiene su altura y los botones quedan al lado
+   del texto, no debajo.
+   ========================================================= */
+
+@media (max-width: 850px) {
+    .info-modal-final .info-modal-footer {
+        display: grid;
+        grid-template-columns: auto minmax(90px, 1fr) auto auto;
+        column-gap: 6px;
+        row-gap: 0;
+        align-items: center;
+        padding: 9px 10px;
+    }
+
+    .info-modal-final .info-footer-icon {
+        grid-column: auto;
+        grid-row: auto;
+        width: 32px;
+        height: 32px;
+        flex: none;
+    }
+
+    .info-modal-final .info-footer-copy {
+        grid-column: auto;
+        grid-row: auto;
+        min-width: 0;
+    }
+
+    .info-modal-final .info-footer-copy strong {
+        font-size: 10.5px;
+        line-height: 1.15;
+        white-space: nowrap;
+    }
+
+    .info-modal-final .info-footer-copy span {
+        font-size: 7.8px;
+        line-height: 1.2;
+        white-space: nowrap;
+    }
+
+    .info-modal-final .info-modal-actions {
+        grid-column: auto;
+        grid-row: auto;
+        display: contents;
+        width: auto;
+    }
+
+    .info-modal-final .info-whatsapp-button,
+    .info-modal-final .info-catalog-button {
+        width: 82px;
+        min-width: 82px;
+        height: 31px;
+        min-height: 31px;
+        padding: 4px 5px;
+        border-radius: 8px;
+        font-size: 8.5px;
+        gap: 3px;
+        white-space: nowrap;
+    }
+
+    .info-modal-final .info-whatsapp-button svg,
+    .info-modal-final .info-catalog-button svg {
+        width: 14px;
+        height: 14px;
+        flex: none;
+    }
+
+    .info-modal-final .info-whatsapp-button span:last-child,
+    .info-modal-final .info-catalog-button span:last-child {
+        font-size: 10px;
+    }
+
+    .info-modal-final .info-catalog-button,
+    .info-modal-final .info-catalog-button span {
+        color: #31543b !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .info-modal-final .info-modal-footer {
+        grid-template-columns: auto minmax(70px, 1fr) auto auto;
+        column-gap: 4px;
+        padding: 8px;
+    }
+
+    .info-modal-final .info-footer-icon {
+        width: 29px;
+        height: 29px;
+    }
+
+    .info-modal-final .info-footer-icon svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    .info-modal-final .info-footer-copy strong {
+        font-size: 9.5px;
+    }
+
+    .info-modal-final .info-footer-copy span {
+        font-size: 7.2px;
+    }
+
+    .info-modal-final .info-whatsapp-button,
+    .info-modal-final .info-catalog-button {
+        width: 75px;
+        min-width: 75px;
+        height: 29px;
+        min-height: 29px;
+        padding: 3px 4px;
+        font-size: 8px;
+        border-radius: 7px;
+    }
+
+    .info-modal-final .info-whatsapp-button svg,
+    .info-modal-final .info-catalog-button svg {
+        width: 13px;
+        height: 13px;
+    }
+
+    .info-modal-final .info-whatsapp-button span:last-child,
+    .info-modal-final .info-catalog-button span:last-child {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 380px) {
+    .info-modal-final .info-modal-footer {
+        grid-template-columns: auto minmax(55px, 1fr) auto auto;
+        column-gap: 3px;
+        padding: 7px;
+    }
+
+    .info-modal-final .info-footer-icon {
+        width: 27px;
+        height: 27px;
+    }
+
+    .info-modal-final .info-footer-copy strong {
+        font-size: 9px;
+    }
+
+    .info-modal-final .info-footer-copy span {
+        font-size: 6.7px;
+    }
+
+    .info-modal-final .info-whatsapp-button,
+    .info-modal-final .info-catalog-button {
+        width: 68px;
+        min-width: 68px;
+        height: 28px;
+        min-height: 28px;
+        padding: 3px;
+        font-size: 7.5px;
+    }
+}
