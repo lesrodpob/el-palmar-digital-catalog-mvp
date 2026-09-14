@@ -360,18 +360,13 @@ ${lines.join("\n")}
                 {products.some(
                   p => p.family.toLowerCase() === "hielos"
                 ) && (
-                  <div className="ice-deal">
-                    <Snowflake size={30} />
-                    <div>
-                      <strong> $100 descuento por volumen en HIELO!!
-                     <br />
-                        2 kg: desde 30 bolsas
-                        <br />
-                        1 kg: desde 50 bolsas
-                      </strong>
+                    <div className="ice-deal">
+                      <img
+                        src="/hielo-volumen-banner.png"
+                        alt="Descuento por volumen en hielo"
+                      />
                     </div>
-                  </div>
-                )}
+                  )}
 
                 <div className="product-grid promo-grid">
                   {featuredProducts.map(p => (
@@ -383,48 +378,48 @@ ${lines.join("\n")}
               <section id="products-section" className="products-head">
                 <div className="section-head">
                   <h2>{
-  searchCategory
-    ? categoryGroups.find(c => c.key === searchCategory)?.label
-    : selectedCategory === "ALL"
-      ? "Todos los productos"
-      : categoryGroups.find(c => c.key === selectedCategory)?.label
-}</h2>
+                    searchCategory
+                      ? categoryGroups.find(c => c.key === searchCategory)?.label
+                      : selectedCategory === "ALL"
+                        ? "Todos los productos"
+                        : categoryGroups.find(c => c.key === selectedCategory)?.label
+                  }</h2>
                   <span>{filteredProducts.length} productos</span>
                 </div>
 
                 <div className="family-filter">
                   <button
-  className={selectedFamily === "ALL" ? "selected" : ""}
-  onClick={() => {
-    setSelectedFamily("ALL");
-    setCurrentPage(1);
-    setTimeout(() => {
-      document.getElementById("products-section")?.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }, 50);
-  }}
->
-  Todas las familias
-</button>
+                    className={selectedFamily === "ALL" ? "selected" : ""}
+                    onClick={() => {
+                      setSelectedFamily("ALL");
+                      setCurrentPage(1);
+                      setTimeout(() => {
+                        document.getElementById("products-section")?.scrollIntoView({
+                          behavior: "smooth",
+                          block: "start"
+                        });
+                      }, 50);
+                    }}
+                  >
+                    Todas las familias
+                  </button>
                   {availableFamilies.map(f => (
                     <button
-  key={f}
-  className={selectedFamily === f ? "selected" : ""}
-  onClick={() => {
-    setSelectedFamily(f);
-    setCurrentPage(1);
-    setTimeout(() => {
-      document.getElementById("products-section")?.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }, 50);
-  }}
->
-  {f}
-</button>
+                      key={f}
+                      className={selectedFamily === f ? "selected" : ""}
+                      onClick={() => {
+                        setSelectedFamily(f);
+                        setCurrentPage(1);
+                        setTimeout(() => {
+                          document.getElementById("products-section")?.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                          });
+                        }, 50);
+                      }}
+                    >
+                      {f}
+                    </button>
                   ))}
                 </div>
 

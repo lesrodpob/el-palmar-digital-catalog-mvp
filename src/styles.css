@@ -459,37 +459,21 @@ input {
    ========================= */
 
 .ice-deal {
+    width: 100%;
+    height: 230px;
     margin: 0 0 18px;
-    padding: 12px 15px;
+    overflow: hidden;
+    border-radius: 14px;
     background: #eef3eb;
     border: 1px solid #dbe5d8;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #31543b;
 }
 
-.ice-deal svg {
-    flex: none;
-    color: #31543b;
-}
-
-.ice-deal div {
-    display: flex;
-    align-items: baseline;
-    gap: 7px;
-    flex-wrap: wrap;
-}
-
-.ice-deal strong {
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.ice-deal span {
-    font-size: 12px;
-    color: #667268;
+.ice-deal img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 /* =========================
@@ -732,7 +716,7 @@ input {
     color: #59645c;
 }
 
-.cart-total > div {
+.cart-total>div {
     display: flex;
     flex-direction: column;
     gap: 3px;
@@ -798,7 +782,7 @@ input {
     align-items: center;
 }
 
-.cart > .notice {
+.cart>.notice {
     margin-bottom: 20px;
 }
 
@@ -862,9 +846,9 @@ input {
     /* Fixed category bar: it stays visible while the catalog scrolls */
     .sidebar {
         width: 100%;
-        height: 58px;
-        min-height: 58px;
-        padding: 8px 10px;
+        height: 88px;
+        min-height: 88px;
+        padding: 8px 10px 5px;
         position: fixed;
         top: 0;
         left: 0;
@@ -874,14 +858,31 @@ input {
         display: block;
     }
 
-    .side-title,
-    .side-line,
+    .side-title {
+        display: block;
+        height: 20px;
+        padding-left: 2px;
+        color: #f4dfab;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+        line-height: 20px;
+        text-align: left;
+    }
+
+    .side-line {
+        display: block;
+        height: 1px;
+        margin: 3px 0 5px;
+        background: #ffffff25;
+    }
+
     .side-tag {
         display: none;
     }
 
     .sidebar nav {
-        height: 100%;
+        height: 47px;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -903,7 +904,7 @@ input {
         padding: 8px 11px;
         gap: 7px;
         border-radius: 9px;
-        font-size: 12px;
+        font-size: 13.5px;
         margin: 0;
     }
 
@@ -915,7 +916,7 @@ input {
     .main {
         width: 100%;
         height: 100vh;
-        padding-top: 58px;
+        padding-top: 88px;
         overflow-y: auto;
         overflow-x: hidden;
     }
@@ -1023,17 +1024,16 @@ input {
     }
 
     .ice-deal {
-        padding: 11px 12px;
-        align-items: flex-start;
-        gap: 8px;
+        height: 150px;
+        margin: 12px 0 20px;
+        border-radius: 12px;
     }
 
-    .ice-deal strong {
-        font-size: 12px;
-    }
-
-    .ice-deal span {
-        font-size: 11px;
+    .ice-deal img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
     }
 
     /* Cart remains available on mobile as a drawer */
@@ -1041,18 +1041,7 @@ input {
         display: block;
         width: min(92vw, 390px);
         height: 100vh;
-        padding: 68px 8px 14px;
-    }
-
-    .cart > .notice {
-        margin-top: 0;
-        margin-bottom: 12px;
-        min-height: 54px;
-        padding: 12px 13px;
-        font-size: 11px;
-        line-height: 1.35;
-        position: relative;
-        z-index: 1;
+        padding: 14px 8px;
     }
 
     .cart-close {
@@ -1209,19 +1198,34 @@ input {
 
 @media (max-width: 600px) {
     .sidebar {
-        height: 54px;
-        min-height: 54px;
+        height: 84px;
+        min-height: 84px;
+        padding-top: 7px;
+    }
+
+    .side-title {
+        height: 19px;
+        font-size: 13px;
+        line-height: 19px;
+    }
+
+    .side-line {
+        margin: 2px 0 4px;
+    }
+
+    .sidebar nav {
+        height: 46px;
     }
 
     .main {
         height: 100vh;
-        padding-top: 54px;
+        padding-top: 84px;
     }
 
     .side-item {
         height: 38px;
         padding: 7px 10px;
-        font-size: 11px;
+        font-size: 12.5px;
     }
 
     .side-item svg {
@@ -1277,7 +1281,7 @@ input {
         padding-top: 64px;
     }
 
-    .cart > .notice {
+    .cart>.notice {
         min-height: 52px;
         font-size: 10.5px;
     }
@@ -1291,4 +1295,5 @@ input {
     .content {
         padding-bottom: 92px;
     }
+
 }
