@@ -477,8 +477,245 @@ input {
 }
 
 /* =========================
+   INFO / DELIVERY & PAYMENT
+   ========================= */
+
+.info-trigger-wrap {
+    display: flex;
+    justify-content: center;
+    padding: 10px 28px 0;
+    background: #fff;
+}
+
+.info-trigger {
+    border: 1px solid #dbe5d8;
+    background: #eef3eb;
+    color: #31543b;
+    border-radius: 10px;
+    min-height: 40px;
+    padding: 8px 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font: 600 12px "DM Sans", Arial, sans-serif;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.info-trigger:hover {
+    background: #e5eee3;
+    transform: translateY(-1px);
+}
+
+.info-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    background: rgba(22, 37, 29, .58);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.info-modal {
+    width: min(560px, 100%);
+    max-height: min(720px, 90vh);
+    overflow: hidden auto;
+    background: #f8f5ec;
+    border: 1px solid #e5e0d6;
+    border-radius: 22px;
+    box-shadow: 0 24px 70px rgba(32, 56, 42, .28);
+    animation: infoModalIn .22s ease-out;
+}
+
+@keyframes infoModalIn {
+    from { opacity: 0; transform: translateY(10px) scale(.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.info-modal-banner {
+    position: relative;
+    min-height: 166px;
+    padding: 23px 25px;
+    background: #204a2d;
+    color: #fff;
+    overflow: hidden;
+}
+
+.info-modal-banner::after {
+    content: "";
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    right: -75px;
+    bottom: -125px;
+    border-radius: 50%;
+    border: 35px solid rgba(243, 221, 176, .18);
+}
+
+.info-modal-brand {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.info-modal-brand span {
+    color: #f3ddb0;
+    font: 700 13px "Playfair Display", Georgia, serif;
+    letter-spacing: 2px;
+}
+
+.info-modal-brand small {
+    color: rgba(255,255,255,.72);
+    font-size: 9px;
+}
+
+.info-modal-title {
+    position: absolute;
+    left: 25px;
+    bottom: 23px;
+    z-index: 1;
+}
+
+.info-modal-title > span {
+    color: #f3ddb0;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.info-modal-title h3 {
+    margin: 5px 0 0;
+    color: #fff;
+    font: 700 28px "Playfair Display", Georgia, serif;
+    line-height: 1.12;
+}
+
+.info-modal-close {
+    position: absolute;
+    z-index: 2;
+    top: 18px;
+    right: 19px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    background: rgba(255,255,255,.1);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 23px;
+}
+
+.info-modal-content {
+    padding: 18px;
+    display: grid;
+    gap: 12px;
+}
+
+.info-card {
+    display: flex;
+    gap: 14px;
+    padding: 17px;
+    background: #fff;
+    border: 1px solid #e5e0d6;
+    border-radius: 15px;
+}
+
+.info-icon {
+    width: 44px;
+    height: 44px;
+    flex: none;
+    border-radius: 12px;
+    background: #e8efe6;
+    color: #31543b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-card-copy { min-width: 0; }
+
+.info-label {
+    display: block;
+    margin-bottom: 3px;
+    color: #b78421;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+}
+
+.info-card h4 {
+    margin: 0 0 6px;
+    color: #20382a;
+    font: 700 17px "Playfair Display", Georgia, serif;
+}
+
+.info-card p {
+    margin: 0;
+    color: #667268;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.info-highlight {
+    display: inline-flex;
+    margin-top: 9px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    background: #eef3eb;
+    color: #31543b;
+    font-size: 11px;
+}
+
+.payment-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 8px;
+}
+
+.payment-chips span {
+    padding: 7px 10px;
+    border-radius: 20px;
+    background: #f1eee5;
+    color: #526056;
+    font-size: 11px;
+}
+
+.info-modal-footer {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 13px 15px;
+    border-radius: 12px;
+    background: #245034;
+    color: #fff;
+}
+
+.info-modal-footer div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.info-modal-footer strong { font-size: 12px; }
+.info-modal-footer span {
+    color: rgba(255,255,255,.78);
+    font-size: 10px;
+}
+
+/* =========================
    CART / DRAWER
    ========================= */
+
 
 .cart {
     position: fixed;
@@ -944,6 +1181,75 @@ input {
         padding: 0 3px;
     }
 
+    .info-trigger-wrap {
+        padding: 8px 14px 0;
+    }
+
+    .info-trigger {
+        width: min(100%, 340px);
+        min-height: 40px;
+        font-size: 12px;
+    }
+
+    .info-modal-backdrop {
+        padding: 14px;
+    }
+
+    .info-modal {
+        max-height: 88vh;
+        border-radius: 17px;
+    }
+
+    .info-modal-head {
+        padding: 20px 18px 16px;
+    }
+
+    .info-modal-head h3 {
+        font-size: 22px;
+    }
+
+    .info-modal-content {
+        padding: 14px;
+    }
+
+    .info-trigger-wrap {
+        padding: 8px 14px 0;
+    }
+
+    .info-trigger {
+        width: min(100%, 340px);
+        min-height: 40px;
+        font-size: 12px;
+    }
+
+    .info-modal-backdrop {
+        padding: 14px;
+    }
+
+    .info-modal {
+        width: 100%;
+        max-height: 88vh;
+        border-radius: 18px;
+    }
+
+    .info-modal-banner {
+        min-height: 150px;
+        padding: 19px;
+    }
+
+    .info-modal-title {
+        left: 19px;
+        bottom: 19px;
+    }
+
+    .info-modal-title h3 {
+        font-size: 23px;
+    }
+
+    .info-modal-content {
+        padding: 13px;
+    }
+
     .content {
         padding: 20px 14px 50px;
     }
@@ -1243,6 +1549,106 @@ input {
         font-size: 14px;
     }
 
+    .info-trigger-wrap {
+        padding: 7px 11px 0;
+    }
+
+    .info-trigger {
+        width: 100%;
+        min-height: 38px;
+        font-size: 11.5px;
+    }
+
+    .info-modal-backdrop {
+        padding: 9px;
+    }
+
+    .info-modal {
+        max-height: 90vh;
+        border-radius: 16px;
+    }
+
+    .info-modal-banner {
+        min-height: 143px;
+        padding: 17px;
+    }
+
+    .info-modal-title {
+        left: 17px;
+        bottom: 17px;
+    }
+
+    .info-modal-title h3 {
+        font-size: 20px;
+        max-width: 300px;
+    }
+
+    .info-modal-close {
+        top: 14px;
+        right: 14px;
+        width: 34px;
+        height: 34px;
+    }
+
+    .info-modal-content {
+        padding: 11px;
+    }
+
+    .info-card {
+        padding: 13px;
+        gap: 11px;
+    }
+
+    .info-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .payment-chips {
+        gap: 5px;
+    }
+
+    .payment-chips span {
+        font-size: 10px;
+        padding: 6px 8px;
+    }
+
+    .info-trigger-wrap {
+        padding: 7px 11px 0;
+    }
+
+    .info-trigger {
+        width: 100%;
+        min-height: 38px;
+        font-size: 11.5px;
+    }
+
+    .info-modal-backdrop {
+        padding: 10px;
+    }
+
+    .info-modal {
+        width: 100%;
+        max-height: 90vh;
+        border-radius: 16px;
+    }
+
+    .info-modal-head {
+        padding: 18px 16px 14px;
+    }
+
+    .info-modal-head h3 {
+        font-size: 20px;
+    }
+
+    .info-modal-content {
+        padding: 12px;
+    }
+
+    .info-card {
+        padding: 13px;
+    }
+
     .content {
         padding: 17px 11px 44px;
     }
@@ -1296,4 +1702,1434 @@ input {
         padding-bottom: 92px;
     }
 
+}
+
+/* =========================
+   INFO MODAL - NUEVO FOOTER
+   ========================= */
+
+.delivery-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 2px;
+}
+
+.delivery-list p {
+    margin: 0;
+    color: #667268;
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.delivery-list p strong {
+    color: #31543b;
+}
+
+.info-modal-footer {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 12px;
+    row-gap: 12px;
+    align-items: center;
+    padding: 15px 16px;
+    border-radius: 13px;
+    background: #245034;
+    color: #fff;
+}
+
+.info-footer-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255,255,255,.28);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+}
+
+.info-footer-copy {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.info-footer-copy strong {
+    font-size: 13px;
+}
+
+.info-footer-copy span {
+    color: rgba(255,255,255,.78);
+    font-size: 10px;
+    line-height: 1.35;
+}
+
+.info-modal-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    width: 100%;
+}
+
+.info-whatsapp-button,
+.info-catalog-button {
+    width: 100%;
+    min-height: 43px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    font: 600 12px "DM Sans", Arial, sans-serif;
+    transition: all .2s ease;
+}
+
+.info-whatsapp-button {
+    border: 1px solid rgba(255,255,255,.3);
+    background: rgba(255,255,255,.13);
+    color: #fff;
+}
+
+.info-whatsapp-button:hover {
+    background: rgba(255,255,255,.2);
+}
+
+.info-catalog-button {
+    border: 1px solid #d9e1d6;
+    background: #f8f5ec;
+    color: #31543b;
+}
+
+.info-catalog-button:hover {
+    background: #e9efe7;
+}
+
+.info-whatsapp-button span:last-child {
+    margin-left: 2px;
+    font-size: 16px;
+}
+
+@media (max-width: 850px) {
+    .info-modal-backdrop {
+        padding: 10px;
+    }
+
+    .info-modal {
+        width: 100%;
+        max-width: 430px;
+        max-height: 91vh;
+        border-radius: 18px;
+    }
+
+    .info-modal-banner {
+        min-height: 145px;
+        padding: 18px;
+    }
+
+    .info-modal-title {
+        left: 18px;
+        bottom: 18px;
+        right: 55px;
+    }
+
+    .info-modal-title h3 {
+        font-size: 22px;
+    }
+
+    .info-modal-content {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .info-card {
+        padding: 13px;
+        gap: 11px;
+    }
+
+    .info-card h4 {
+        font-size: 16px;
+    }
+
+    .delivery-list p {
+        font-size: 11px;
+    }
+
+    .payment-chips {
+        gap: 5px;
+    }
+
+    .payment-chips span {
+        font-size: 10px;
+        padding: 6px 8px;
+    }
+
+    .info-modal-footer {
+        padding: 13px;
+        column-gap: 10px;
+    }
+
+    .info-footer-copy strong {
+        font-size: 12px;
+    }
+
+    .info-footer-copy span {
+        font-size: 10px;
+    }
+
+    .info-whatsapp-button,
+    .info-catalog-button {
+        min-height: 42px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .info-modal-backdrop {
+        padding: 8px;
+    }
+
+    .info-modal {
+        max-height: 92vh;
+        border-radius: 16px;
+    }
+
+    .info-modal-banner {
+        min-height: 139px;
+        padding: 16px;
+    }
+
+    .info-modal-brand span {
+        font-size: 12px;
+    }
+
+    .info-modal-title {
+        left: 16px;
+        bottom: 16px;
+        right: 48px;
+    }
+
+    .info-modal-title > span {
+        font-size: 8px;
+    }
+
+    .info-modal-title h3 {
+        font-size: 19px;
+        line-height: 1.12;
+    }
+
+    .info-modal-close {
+        top: 13px;
+        right: 13px;
+        width: 34px;
+        height: 34px;
+    }
+
+    .info-modal-content {
+        padding: 10px;
+        gap: 9px;
+    }
+
+    .info-card {
+        padding: 12px;
+        gap: 10px;
+        border-radius: 13px;
+    }
+
+    .info-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+    }
+
+    .info-card h4 {
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+
+    .delivery-list {
+        gap: 3px;
+    }
+
+    .delivery-list p {
+        font-size: 10.5px;
+        line-height: 1.35;
+    }
+
+    .info-label {
+        font-size: 8px;
+    }
+
+    .payment-chips {
+        margin-top: 6px;
+    }
+
+    .payment-chips span {
+        font-size: 9.5px;
+        padding: 6px 7px;
+    }
+
+    .info-modal-footer {
+        padding: 12px;
+        column-gap: 9px;
+        row-gap: 10px;
+        border-radius: 12px;
+    }
+
+    .info-footer-icon {
+        width: 37px;
+        height: 37px;
+    }
+
+    .info-footer-copy strong {
+        font-size: 11.5px;
+    }
+
+    .info-footer-copy span {
+        font-size: 9.5px;
+    }
+
+    .info-whatsapp-button,
+    .info-catalog-button {
+        min-height: 40px;
+        border-radius: 9px;
+        font-size: 11px;
+    }
+}
+
+
+
+/* =========================
+   INFO MODAL - COMPACTO / SIN SCROLL
+   ========================= */
+
+.info-modal {
+    max-height: calc(100vh - 24px);
+    overflow: hidden;
+}
+
+.info-modal-content {
+    padding: 14px;
+    gap: 9px;
+}
+
+.info-card {
+    padding: 12px 14px;
+    gap: 12px;
+}
+
+.info-card h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.delivery-list {
+    gap: 2px;
+}
+
+.delivery-list p {
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+.info-highlight {
+    margin-top: 6px;
+    padding: 6px 9px;
+    font-size: 10px;
+}
+
+.payment-chips {
+    margin-top: 5px;
+    gap: 5px;
+}
+
+.payment-chips span {
+    padding: 6px 9px;
+    font-size: 10px;
+}
+
+.info-modal-footer {
+    padding: 11px 13px;
+    row-gap: 7px;
+}
+
+.info-footer-icon {
+    width: 36px;
+    height: 36px;
+}
+
+.info-footer-copy strong {
+    font-size: 12px;
+}
+
+.info-footer-copy span {
+    font-size: 9.5px;
+}
+
+.info-modal-actions {
+    gap: 5px;
+}
+
+.info-whatsapp-button,
+.info-catalog-button {
+    min-height: 36px;
+    border-radius: 9px;
+    font-size: 11px;
+}
+
+/* Celular */
+@media (max-width: 850px) {
+    .info-modal {
+        max-height: calc(100vh - 16px);
+        overflow: hidden;
+    }
+
+    .info-modal-banner {
+        min-height: 125px;
+        padding: 16px;
+    }
+
+    .info-modal-title {
+        left: 16px;
+        bottom: 15px;
+    }
+
+    .info-modal-title h3 {
+        font-size: 20px;
+    }
+
+    .info-modal-content {
+        padding: 10px;
+        gap: 7px;
+    }
+
+    .info-card {
+        padding: 10px 11px;
+        gap: 9px;
+        border-radius: 12px;
+    }
+
+    .info-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 9px;
+    }
+
+    .info-card h4 {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+
+    .delivery-list p {
+        font-size: 10px;
+        line-height: 1.3;
+    }
+
+    .info-label {
+        font-size: 7.5px;
+        margin-bottom: 2px;
+    }
+
+    .payment-chips {
+        margin-top: 4px;
+        gap: 4px;
+    }
+
+    .payment-chips span {
+        padding: 5px 7px;
+        font-size: 9px;
+    }
+
+    .info-modal-footer {
+        padding: 10px;
+        column-gap: 8px;
+        row-gap: 6px;
+        border-radius: 11px;
+    }
+
+    .info-footer-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .info-footer-copy strong {
+        font-size: 11px;
+    }
+
+    .info-footer-copy span {
+        font-size: 9px;
+    }
+
+    .info-modal-actions {
+        gap: 4px;
+    }
+
+    .info-whatsapp-button,
+    .info-catalog-button {
+        min-height: 34px;
+        border-radius: 8px;
+        font-size: 10.5px;
+    }
+}
+
+@media (max-width: 600px) {
+    .info-modal-backdrop {
+        padding: 6px;
+    }
+
+    .info-modal {
+        max-height: calc(100vh - 12px);
+        border-radius: 15px;
+    }
+
+    .info-modal-banner {
+        min-height: 116px;
+        padding: 14px;
+    }
+
+    .info-modal-brand span {
+        font-size: 11px;
+    }
+
+    .info-modal-brand small {
+        font-size: 8px;
+    }
+
+    .info-modal-title {
+        left: 14px;
+        bottom: 13px;
+    }
+
+    .info-modal-title > span {
+        font-size: 7px;
+    }
+
+    .info-modal-title h3 {
+        font-size: 18px;
+    }
+
+    .info-modal-close {
+        top: 11px;
+        right: 11px;
+        width: 32px;
+        height: 32px;
+        font-size: 20px;
+    }
+
+    .info-modal-content {
+        padding: 8px;
+        gap: 6px;
+    }
+
+    .info-card {
+        padding: 9px 10px;
+        gap: 8px;
+    }
+
+    .info-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .info-icon svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    .info-card h4 {
+        font-size: 13.5px;
+    }
+
+    .delivery-list p {
+        font-size: 9.5px;
+    }
+
+    .payment-chips span {
+        padding: 5px 6px;
+        font-size: 8.5px;
+    }
+
+    .info-modal-footer {
+        padding: 9px;
+        row-gap: 5px;
+    }
+
+    .info-footer-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .info-footer-icon svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    .info-whatsapp-button,
+    .info-catalog-button {
+        min-height: 32px;
+        font-size: 10px;
+    }
+
+    .info-whatsapp-button svg,
+    .info-catalog-button svg {
+        width: 17px;
+        height: 17px;
+    }
+}
+
+
+/* =========================
+   MODAL FINAL - BOTONES COMPACTOS
+   ========================= */
+
+.info-modal-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+    width: 100%;
+}
+
+.info-whatsapp-button,
+.info-catalog-button {
+    width: 100%;
+    min-height: 34px;
+    height: 34px;
+    padding: 6px 9px;
+    border-radius: 9px;
+    font-size: 10px;
+    gap: 5px;
+}
+
+.info-whatsapp-button svg,
+.info-catalog-button svg {
+    width: 17px;
+    height: 17px;
+}
+
+.info-whatsapp-button span:last-child {
+    font-size: 13px;
+    margin-left: 0;
+}
+
+@media (max-width: 600px) {
+    .info-modal-actions {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    .info-whatsapp-button,
+    .info-catalog-button {
+        min-height: 32px;
+        height: 32px;
+        padding: 5px 7px;
+        font-size: 9.5px;
+        border-radius: 8px;
+    }
+
+    .info-whatsapp-button svg,
+    .info-catalog-button svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* On very narrow screens, keep them side-by-side but slightly tighter. */
+@media (max-width: 380px) {
+    .info-modal-actions {
+        gap: 5px;
+    }
+
+    .info-whatsapp-button,
+    .info-catalog-button {
+        font-size: 9px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+
+/* =========================
+   INFO MODAL - DISEÑO FINAL DE REFERENCIA
+   ========================= */
+
+.info-modal-final {
+    width: min(670px, calc(100vw - 32px));
+    max-height: calc(100vh - 32px);
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+.info-modal-final .info-modal-banner {
+    min-height: 190px;
+    padding: 20px 27px;
+}
+
+.info-brand-lockup {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.info-brand-mark {
+    width: 31px;
+    height: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f3ddb0;
+    font-size: 22px;
+}
+
+.info-brand-lockup > div:last-child {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.info-brand-lockup span {
+    color: #f3ddb0;
+    font: 700 18px "Playfair Display", Georgia, serif;
+    letter-spacing: 1.4px;
+}
+
+.info-brand-lockup small {
+    margin-top: 4px;
+    color: rgba(255,255,255,.76);
+    font-size: 8px;
+}
+
+.info-brand-phrase {
+    position: absolute;
+    z-index: 2;
+    top: 29px;
+    right: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #f3ddb0;
+    font: italic 13px "Playfair Display", Georgia, serif;
+    line-height: 1.05;
+    transform: rotate(-4deg);
+}
+
+.info-brand-phrase::after {
+    content: "";
+    width: 92px;
+    height: 2px;
+    margin-top: 5px;
+    border-radius: 50%;
+    background: #f3ddb0;
+    transform: rotate(-3deg);
+}
+
+.info-modal-final .info-modal-title {
+    left: 27px;
+    bottom: 22px;
+}
+
+.info-modal-final .info-modal-title h3 {
+    font-size: 30px;
+}
+
+.info-modal-final .info-modal-content {
+    padding: 18px;
+    gap: 11px;
+}
+
+.info-modal-final .info-card {
+    padding: 15px;
+    gap: 13px;
+}
+
+.info-modal-final .info-card h4 {
+    font-size: 17px;
+}
+
+.info-modal-final .delivery-list {
+    gap: 3px;
+}
+
+.info-modal-final .delivery-list p {
+    font-size: 11.5px;
+}
+
+.info-modal-final .payment-logo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.info-modal-final .payment-logo-item {
+    min-height: 67px;
+    padding: 7px 5px;
+    border-radius: 10px;
+    background: #f3f0e8;
+    color: #536056;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    text-align: center;
+    font-size: 9.5px;
+    line-height: 1.15;
+}
+
+.info-modal-final .payment-logo {
+    color: #31543b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-modal-final .info-modal-footer {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    column-gap: 11px;
+    align-items: center;
+    padding: 12px 14px;
+}
+
+.info-modal-final .info-footer-icon {
+    width: 39px;
+    height: 39px;
+}
+
+.info-modal-final .info-footer-copy {
+    min-width: 0;
+}
+
+.info-modal-final .info-footer-copy strong {
+    font-size: 12px;
+}
+
+.info-modal-final .info-footer-copy span {
+    font-size: 9.5px;
+}
+
+.info-modal-final .info-whatsapp-button {
+    width: auto;
+    min-width: 136px;
+    min-height: 36px;
+    height: 36px;
+    padding: 6px 10px;
+    border-radius: 9px;
+    border: 1px solid rgba(255,255,255,.28);
+    background: rgba(255,255,255,.12);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    font: 600 10px "DM Sans", Arial, sans-serif;
+}
+
+.info-modal-final .info-whatsapp-button:hover {
+    background: rgba(255,255,255,.2);
+}
+
+.info-modal-final .info-whatsapp-button span:last-child {
+    font-size: 13px;
+    margin-left: 0;
+}
+
+@media (max-width: 850px) {
+    .info-modal-final {
+        width: min(430px, calc(100vw - 16px));
+        max-height: calc(100vh - 16px);
+        border-radius: 18px;
+    }
+
+    .info-modal-final .info-modal-banner {
+        min-height: 148px;
+        padding: 16px 17px;
+    }
+
+    .info-brand-lockup span {
+        font-size: 15px;
+    }
+
+    .info-brand-lockup small {
+        font-size: 7px;
+    }
+
+    .info-brand-phrase {
+        top: 24px;
+        right: 50px;
+        font-size: 10px;
+    }
+
+    .info-brand-phrase::after {
+        width: 70px;
+        margin-top: 4px;
+    }
+
+    .info-modal-final .info-modal-title {
+        left: 17px;
+        bottom: 16px;
+    }
+
+    .info-modal-final .info-modal-title > span {
+        font-size: 7.5px;
+    }
+
+    .info-modal-final .info-modal-title h3 {
+        font-size: 22px;
+    }
+
+    .info-modal-final .info-modal-content {
+        padding: 11px;
+        gap: 7px;
+    }
+
+    .info-modal-final .info-card {
+        padding: 11px;
+        gap: 9px;
+    }
+
+    .info-modal-final .info-card h4 {
+        font-size: 14px;
+    }
+
+    .info-modal-final .delivery-list p {
+        font-size: 10px;
+    }
+
+    .info-modal-final .payment-logo-grid {
+        gap: 5px;
+        margin-top: 6px;
+    }
+
+    .info-modal-final .payment-logo-item {
+        min-height: 58px;
+        padding: 5px 3px;
+        font-size: 8px;
+        border-radius: 8px;
+    }
+
+    .info-modal-final .info-modal-footer {
+        grid-template-columns: auto minmax(0, 1fr);
+        padding: 10px;
+        column-gap: 8px;
+        row-gap: 7px;
+    }
+
+    .info-modal-final .info-footer-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .info-modal-final .info-footer-copy strong {
+        font-size: 11px;
+    }
+
+    .info-modal-final .info-footer-copy span {
+        font-size: 8.5px;
+    }
+
+    .info-modal-final .info-whatsapp-button {
+        grid-column: 1 / -1;
+        width: 100%;
+        min-height: 34px;
+        height: 34px;
+        font-size: 9.5px;
+    }
+}
+
+@media (max-width: 600px) {
+    .info-modal-final {
+        width: calc(100vw - 12px);
+        max-height: calc(100vh - 12px);
+        border-radius: 16px;
+    }
+
+    .info-modal-final .info-modal-banner {
+        min-height: 137px;
+        padding: 14px;
+    }
+
+    .info-brand-lockup span {
+        font-size: 13px;
+    }
+
+    .info-brand-lockup small {
+        font-size: 6.5px;
+    }
+
+    .info-brand-mark {
+        width: 25px;
+        font-size: 18px;
+    }
+
+    .info-brand-phrase {
+        top: 20px;
+        right: 40px;
+        font-size: 8.5px;
+    }
+
+    .info-brand-phrase::after {
+        width: 58px;
+    }
+
+    .info-modal-final .info-modal-title {
+        left: 14px;
+        bottom: 14px;
+        right: 45px;
+    }
+
+    .info-modal-final .info-modal-title > span {
+        font-size: 6.5px;
+    }
+
+    .info-modal-final .info-modal-title h3 {
+        font-size: 19px;
+    }
+
+    .info-modal-final .info-modal-content {
+        padding: 8px;
+        gap: 6px;
+    }
+
+    .info-modal-final .info-card {
+        padding: 9px;
+        gap: 7px;
+        border-radius: 11px;
+    }
+
+    .info-modal-final .info-icon {
+        width: 33px;
+        height: 33px;
+        border-radius: 8px;
+    }
+
+    .info-modal-final .info-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .info-modal-final .info-label {
+        font-size: 7px;
+    }
+
+    .info-modal-final .info-card h4 {
+        font-size: 12.5px;
+        margin-bottom: 3px;
+    }
+
+    .info-modal-final .delivery-list {
+        gap: 2px;
+    }
+
+    .info-modal-final .delivery-list p {
+        font-size: 9px;
+        line-height: 1.25;
+    }
+
+    .info-modal-final .payment-logo-grid {
+        gap: 4px;
+        margin-top: 5px;
+    }
+
+    .info-modal-final .payment-logo-item {
+        min-height: 51px;
+        padding: 4px 2px;
+        font-size: 7.5px;
+    }
+
+    .info-modal-final .payment-logo svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .info-modal-final .info-modal-footer {
+        padding: 8px;
+        row-gap: 5px;
+        border-radius: 10px;
+    }
+
+    .info-modal-final .info-footer-icon {
+        width: 31px;
+        height: 31px;
+    }
+
+    .info-modal-final .info-footer-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .info-modal-final .info-footer-copy strong {
+        font-size: 10.5px;
+    }
+
+    .info-modal-final .info-footer-copy span {
+        font-size: 8px;
+    }
+
+    .info-modal-final .info-whatsapp-button {
+        min-height: 31px;
+        height: 31px;
+        font-size: 9px;
+    }
+}
+
+
+/* =========================
+   INFO MODAL - HEADER MÁS CORTO + LOGO REAL
+   ========================= */
+
+.info-modal-final .info-modal-banner {
+    min-height: 145px;
+    height: 145px;
+    padding: 16px 25px;
+}
+
+.info-modal-final .info-brand-lockup {
+    position: absolute;
+    z-index: 3;
+    top: 17px;
+    left: 25px;
+    width: 155px;
+    height: 58px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.info-modal-final .info-brand-lockup img {
+    display: block;
+    width: 155px;
+    height: auto;
+    max-height: 58px;
+    object-fit: contain;
+    object-position: left top;
+}
+
+/* La frase queda arriba a la derecha, como en el diseño de referencia. */
+.info-modal-final .info-brand-phrase {
+    top: 25px;
+    right: 70px;
+}
+
+/* El título sube para aprovechar el espacio y evitar separación excesiva. */
+.info-modal-final .info-modal-title {
+    left: 25px;
+    bottom: 18px;
+}
+
+.info-modal-final .info-modal-title h3 {
+    margin-top: 3px;
+    font-size: 28px;
+    line-height: 1.05;
+}
+
+/* Reduce el espacio inmediatamente después del encabezado. */
+.info-modal-final .info-modal-content {
+    padding: 12px 15px 15px;
+    gap: 8px;
+}
+
+@media (max-width: 850px) {
+    .info-modal-final .info-modal-banner {
+        min-height: 132px;
+        height: 132px;
+        padding: 13px 16px;
+    }
+
+    .info-modal-final .info-brand-lockup {
+        top: 13px;
+        left: 16px;
+        width: 125px;
+        height: 47px;
+    }
+
+    .info-modal-final .info-brand-lockup img {
+        width: 125px;
+        max-height: 47px;
+    }
+
+    .info-modal-final .info-brand-phrase {
+        top: 20px;
+        right: 47px;
+        font-size: 9px;
+    }
+
+    .info-modal-final .info-modal-title {
+        left: 16px;
+        bottom: 14px;
+    }
+
+    .info-modal-final .info-modal-title h3 {
+        font-size: 20px;
+    }
+
+    .info-modal-final .info-modal-content {
+        padding: 9px 10px 10px;
+        gap: 6px;
+    }
+}
+
+@media (max-width: 600px) {
+    .info-modal-final .info-modal-banner {
+        min-height: 120px;
+        height: 120px;
+        padding: 11px 13px;
+    }
+
+    .info-modal-final .info-brand-lockup {
+        top: 11px;
+        left: 13px;
+        width: 108px;
+        height: 40px;
+    }
+
+    .info-modal-final .info-brand-lockup img {
+        width: 108px;
+        max-height: 40px;
+    }
+
+    .info-modal-final .info-brand-phrase {
+        top: 17px;
+        right: 38px;
+        font-size: 7.5px;
+    }
+
+    .info-modal-final .info-brand-phrase::after {
+        width: 50px;
+        margin-top: 3px;
+    }
+
+    .info-modal-final .info-modal-title {
+        left: 13px;
+        bottom: 12px;
+        right: 42px;
+    }
+
+    .info-modal-final .info-modal-title > span {
+        font-size: 6.2px;
+    }
+
+    .info-modal-final .info-modal-title h3 {
+        font-size: 17px;
+        line-height: 1.05;
+    }
+
+    .info-modal-final .info-modal-content {
+        padding: 7px 8px 8px;
+        gap: 5px;
+    }
+}
+
+
+/* =========================================================
+   MODAL FINAL — FOOTER CON WHATSAPP + INICIO EN LA MISMA FILA
+   ========================================================= */
+
+/* Se elimina el bloque de marca/logo del encabezado. */
+.info-modal-final .info-modal-banner {
+    min-height: 145px;
+    height: 145px;
+}
+
+/* La frase queda como elemento de branding principal. */
+.info-modal-final .info-brand-phrase {
+    top: 27px;
+    right: 70px;
+}
+
+/* Footer: icono + texto + dos botones compactos en una sola fila. */
+.info-modal-final .info-modal-footer {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    column-gap: 10px;
+    align-items: center;
+    padding: 11px 13px;
+}
+
+.info-modal-final .info-modal-actions {
+    display: contents;
+}
+
+.info-modal-final .info-whatsapp-button,
+.info-modal-final .info-catalog-button {
+    width: 108px;
+    min-width: 108px;
+    height: 34px;
+    min-height: 34px;
+    padding: 5px 7px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font: 600 9.5px "DM Sans", Arial, sans-serif;
+    white-space: nowrap;
+}
+
+.info-modal-final .info-whatsapp-button {
+    border: 1px solid rgba(255,255,255,.28);
+    background: rgba(255,255,255,.12);
+    color: #fff;
+}
+
+.info-modal-final .info-catalog-button {
+    border: 1px solid rgba(255,255,255,.22);
+    background: #f8f5ec;
+    color: #31543b;
+}
+
+.info-modal-final .info-whatsapp-button svg,
+.info-modal-final .info-catalog-button svg {
+    width: 16px;
+    height: 16px;
+    flex: none;
+}
+
+.info-modal-final .info-whatsapp-button span:last-child,
+.info-modal-final .info-catalog-button span:last-child {
+    font-size: 12px;
+    margin-left: 0;
+}
+
+@media (max-width: 850px) {
+    .info-modal-final .info-modal-footer {
+        grid-template-columns: auto minmax(0, 1fr) auto auto;
+        column-gap: 6px;
+        padding: 9px;
+    }
+
+    .info-modal-final .info-footer-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .info-modal-final .info-footer-copy strong {
+        font-size: 10.5px;
+    }
+
+    .info-modal-final .info-footer-copy span {
+        font-size: 8px;
+    }
+
+    .info-modal-final .info-whatsapp-button,
+    .info-modal-final .info-catalog-button {
+        width: 91px;
+        min-width: 91px;
+        height: 32px;
+        min-height: 32px;
+        padding: 4px 5px;
+        font-size: 8.5px;
+        gap: 3px;
+    }
+
+    .info-modal-final .info-whatsapp-button svg,
+    .info-modal-final .info-catalog-button svg {
+        width: 15px;
+        height: 15px;
+    }
+
+    .info-modal-final .info-whatsapp-button span:last-child,
+    .info-modal-final .info-catalog-button span:last-child {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 600px) {
+    .info-modal-final .info-modal-banner {
+        min-height: 120px;
+        height: 120px;
+    }
+
+    .info-modal-final .info-brand-phrase {
+        top: 17px;
+        right: 38px;
+        font-size: 7.5px;
+    }
+
+    .info-modal-final .info-modal-footer {
+        grid-template-columns: auto minmax(0, 1fr) auto auto;
+        column-gap: 4px;
+        padding: 8px 7px;
+    }
+
+    .info-modal-final .info-footer-icon {
+        width: 29px;
+        height: 29px;
+    }
+
+    .info-modal-final .info-footer-icon svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    .info-modal-final .info-footer-copy strong {
+        font-size: 9.5px;
+    }
+
+    .info-modal-final .info-footer-copy span {
+        font-size: 7.5px;
+    }
+
+    .info-modal-final .info-whatsapp-button,
+    .info-modal-final .info-catalog-button {
+        width: 76px;
+        min-width: 76px;
+        height: 30px;
+        min-height: 30px;
+        padding: 4px 3px;
+        border-radius: 8px;
+        font-size: 7.5px;
+    }
+
+    .info-modal-final .info-whatsapp-button svg,
+    .info-modal-final .info-catalog-button svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .info-modal-final .info-whatsapp-button span:last-child,
+    .info-modal-final .info-catalog-button span:last-child {
+        font-size: 10px;
+    }
+}
+
+/* Pantallas muy angostas: mantenemos los dos botones juntos y compactos. */
+@media (max-width: 380px) {
+    .info-modal-final .info-modal-footer {
+        grid-template-columns: auto minmax(0, 1fr);
+        row-gap: 6px;
+    }
+
+    .info-modal-final .info-modal-actions {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5px;
+        width: 100%;
+    }
+
+    .info-modal-final .info-whatsapp-button,
+    .info-modal-final .info-catalog-button {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+/* =========================
+   AJUSTE FINAL - TEXTO IR AL INICIO
+   ========================= */
+.info-modal-final .info-catalog-button {
+    color: #31543b;
+}
+
+/* =========================
+   CORRECCIÓN FINAL - TEXTO "IR AL INICIO"
+   ========================= */
+.info-modal-final .info-catalog-button span {
+    color: #31543b !important;
 }

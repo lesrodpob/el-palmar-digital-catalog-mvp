@@ -6,7 +6,7 @@ import {
   Search, ShoppingCart, MessageCircle, Trash2,
   Minus, Plus, Package, Truck, Percent, Headphones, ChevronRight,
   LoaderCircle, AlertCircle
-} from "lucide-react";
+, Banknote, FileText, CreditCard, ArrowLeftRight} from "lucide-react";
 import "./styles.css";
 
 const EXCEL_URL = "/data/productos.xlsx";
@@ -75,6 +75,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
+  const [infoOpen, setInfoOpen] = useState(true);
   const cartRef = useRef(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -271,6 +272,11 @@ function App() {
     );
   }
 
+  function openWhatsAppContact() {
+    const whatsappNumber = "988137633";
+    window.open(`https://wa.me/${whatsappNumber}`, "_blank");
+  }
+
   function sendWhatsApp() {
     if (!cart.length) return;
 
@@ -344,6 +350,18 @@ ${lines.join("\n")}
             }}
             placeholder="Buscar productos, marcas o categorías..."
           />
+        </div>
+
+        <div className="info-trigger-wrap">
+          <button
+            className="info-trigger"
+            onClick={() => setInfoOpen(true)}
+            type="button"
+          >
+            <Truck size={18} />
+            <span>Despacho y medios de pago</span>
+            <ChevronRight size={17} />
+          </button>
         </div>
 
         <section className="content">
@@ -535,7 +553,6 @@ ${lines.join("\n")}
       )}
 
       <aside ref={cartRef} className={`cart ${cartOpen ? "cart-open" : ""}`}>
-        <div className="notice"><Truck size={17} /> <span>Despachos gratis sobre $50.000 en Limache y alrededores</span></div>
         <div className="cart-box">
           <div className="cart-head">
             <ShoppingCart size={32} />
@@ -580,7 +597,152 @@ ${lines.join("\n")}
           <button className="clear" onClick={() => setCart([])}><Trash2 size={20} /> Vaciar carrito</button>
         </div>
       </aside>
+
+      {infoOpen && (
+        <div className="info-modal-backdrop" onClick={() => setInfoOpen(false)}>
+          <div
+            className="info-modal info-modal-final"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="info-modal-title"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="info-modal-banner">
+              <div className="info-brand-lockup">
+                <img
+                  src="/el-palmar-modal-banner.png"
+                  alt="Distribuidora El Palmar"
+                />
+              </div>
+
+              <div className="info-brand-phrase">
+                <span>Todo lo que necesitas</span>
+                <span>en un solo lugar</span>
+              </div>
+
+              <button
+                className="info-modal-close"
+                onClick={() => setInfoOpen(false)}
+                aria-label="Cerrar información"
+                type="button"
+              >
+                ×
+              </button>
+
+              <div className="info-modal-title">
+                <span>INFORMACIÓN PARA TU PEDIDO</span>
+                <h3 id="info-modal-title">Despacho y medios de pago</h3>
+              </div>
+            </div>
+
+            <div className="info-modal-content">
+              <section className="info-card info-delivery-card">
+                <div className="info-icon">
+                  <Truck size={24} />
+                </div>
+
+                <div className="info-card-copy">
+                  <span className="info-label">DESPACHOS</span>
+                  <h4>Despachos gratis por compras desde $50.000</h4>
+
+                  <div className="delivery-list">
+                    <p><strong>● Limache:</strong> Martes</p>
+                    <p><strong>● Olmué:</strong> Miércoles</p>
+                    <p><strong>● Otros sectores:</strong> Comunicarse al WhatsApp.</p>
+                  </div>
+                </div>
+              </section>
+
+              <section className="info-card info-payment-card">
+                <div className="info-icon">
+                  <CreditCardIcon />
+                </div>
+
+                <div className="info-card-copy">
+                  <span className="info-label">MEDIOS DE PAGO</span>
+                  <h4>Aceptamos los siguientes medios de pago:</h4>
+
+                  <div className="payment-logo-grid">
+                    <div className="payment-logo-item">
+                      <span className="payment-logo"><Banknote size={19} /></span>
+                      <span>Efectivo</span>
+                    </div>
+
+                    <div className="payment-logo-item">
+                      <span className="payment-logo"><FileText size={19} /></span>
+                      <span>Cheque</span>
+                    </div>
+
+                    <div className="payment-logo-item">
+                      <span className="payment-logo"><CreditCard size={19} /></span>
+                      <span>Tarjetas<br />débito y crédito</span>
+                    </div>
+
+                    <div className="payment-logo-item">
+                      <span className="payment-logo"><ArrowLeftRight size={19} /></span>
+                      <span>Transferencias</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <div className="info-modal-footer">
+                <div className="info-footer-icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32">
+                    <path d="M16 3.5c-6.9 0-12.5 5.6-12.5 12.5 0 2.2.6 4.3 1.6 6.1L3.5 28.5l6.6-1.7c1.8 1 3.8 1.5 5.9 1.5 6.9 0 12.5-5.6 12.5-12.5S22.9 3.5 16 3.5Z" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M11.6 10.3c.3-.4.7-.4 1-.1l1.5 1.8c.3.3.3.7.1 1.1l-.7.9c-.2.2-.2.5 0 .8.7 1.1 1.7 2.1 2.8 2.8.3.2.6.2.8 0l.9-.7c.4-.3.8-.2 1.1.1l1.8 1.5c.3.3.3.7-.1 1-1 1-2.5 1.1-3.7.5-2.1-1-4-2.5-5.5-4.1-1.6-1.6-3-3.5-4.1-5.5-.6-1.2-.5-2.7.5-3.7Z" fill="currentColor"/>
+                  </svg>
+                </div>
+
+                <div className="info-footer-copy">
+                  <strong>¿Tienes dudas o consultas?</strong>
+                  <span>Escríbenos por WhatsApp y te ayudaremos.</span>
+                </div>
+
+                <div className="info-modal-actions">
+                  <button type="button" className="info-whatsapp-button" onClick={openWhatsAppContact}>
+                    <span className="whatsapp-button-icon" aria-hidden="true">
+                      <svg viewBox="0 0 32 32">
+                        <path d="M16 3.5c-6.9 0-12.5 5.6-12.5 12.5 0 2.2.6 4.3 1.6 6.1L3.5 28.5l6.6-1.7c1.8 1 3.8 1.5 5.9 1.5 6.9 0 12.5-5.6 12.5-12.5S22.9 3.5 16 3.5Z" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M11.6 10.3c.3-.4.7-.4 1-.1l1.5 1.8c.3.3.3.7.1 1.1l-.7.9c-.2.2-.2.5 0 .8.7 1.1 1.7 2.1 2.8 2.8.3.2.6.2.8 0l.9-.7c.4-.3.8-.2 1.1.1l1.8 1.5c.3.3.3.7-.1 1-1 1-2.5 1.1-3.7.5-2.1-1-4-2.5-5.5-4.1-1.6-1.6-3-3.5-4.1-5.5-.6-1.2-.5-2.7.5-3.7Z" fill="currentColor"/>
+                      </svg>
+                    </span>
+                    <span>Ir a WhatsApp</span>
+                    <span aria-hidden="true">↗</span>
+                  </button>
+
+                  <button type="button" className="info-catalog-button" onClick={() => { setInfoOpen(false); goHome(); }}>
+                    <Home size={18} />
+                    <span>Ir al inicio</span>
+                    <span aria-hidden="true">↗</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
+  );
+}
+
+function CreditCardIcon() {
+  return (
+    <svg
+      width="23"
+      height="23"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="M3 10h18" />
+      <path d="M7 15h3" />
+    </svg>
   );
 }
 
