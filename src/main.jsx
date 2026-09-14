@@ -174,19 +174,17 @@ function App() {
   // - Hielo de 1 kg: desde 50 bolsas -> $100 menos por bolsa.
   // Cada formato se calcula por separado.
   const ice2kgUnits = cart
-    .filter(
-      item =>
-        item.family.toLowerCase() === "hielos" &&
-        /2\s*(kg|kl)/i.test(item.name)
-    )
+    .filter(item => {
+      const text = `${item.name} ${item.family}`.toLowerCase();
+      return /hielo/.test(text) && /\b2\s*(?:kg|kl|kilos?)\b/i.test(text);
+    })
     .reduce((sum, item) => sum + item.quantity, 0);
 
   const ice1kgUnits = cart
-    .filter(
-      item =>
-        item.family.toLowerCase() === "hielos" &&
-        /1\s*(kg|kl)/i.test(item.name)
-    )
+    .filter(item => {
+      const text = `${item.name} ${item.family}`.toLowerCase();
+      return /hielo/.test(text) && /\b1\s*(?:kg|kl|kilos?)\b/i.test(text);
+    })
     .reduce((sum, item) => sum + item.quantity, 0);
 
   const cartSubtotal = cart.reduce(
@@ -333,6 +331,9 @@ ${lines.join("\n")}
               </button>
             ))}
         </nav>
+        <div className="category-scroll-hint" aria-hidden="true">
+          <ChevronRight size={20} />
+        </div>
         <div className="side-tag">Tu distribuidora<br />de confianza</div>
       </aside>
 
@@ -588,7 +589,9 @@ ${lines.join("\n")}
             <div>
               <span>Total ({cartUnits} productos)</span>
               {iceDiscount > 0 && (
-                <small>Descuento hielo: -{money(iceDiscount)}</small>
+                <small>
+                  Descuento hielo: -{money(iceDiscount)}
+                </small>
               )}
             </div>
             <b>{money(cartTotal)}</b>
