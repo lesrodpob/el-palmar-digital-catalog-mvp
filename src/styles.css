@@ -3133,3 +3133,167 @@ input {
 .info-modal-final .info-catalog-button span {
     color: #31543b !important;
 }
+
+/* =========================================================
+   AJUSTE MOBILE FINAL — FOOTER DEL MODAL
+   Mantiene el diseño de referencia sin desbordes.
+   ========================================================= */
+
+@media (max-width: 850px) {
+    .info-modal-final .info-modal-footer {
+        display: grid;
+        grid-template-columns: 38px minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        column-gap: 9px;
+        row-gap: 9px;
+        align-items: center;
+        padding: 10px 11px;
+    }
+
+    .info-modal-final .info-footer-icon {
+        grid-column: 1;
+        grid-row: 1;
+        width: 34px;
+        height: 34px;
+    }
+
+    .info-modal-final .info-footer-copy {
+        grid-column: 2;
+        grid-row: 1;
+        min-width: 0;
+    }
+
+    .info-modal-final .info-footer-copy strong {
+        font-size: 11px;
+        line-height: 1.2;
+    }
+
+    .info-modal-final .info-footer-copy span {
+        font-size: 8.5px;
+        line-height: 1.25;
+    }
+
+    .info-modal-final .info-modal-actions {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px;
+        width: 100%;
+    }
+
+    .info-modal-final .info-whatsapp-button,
+    .info-modal-final .info-catalog-button {
+        width: 100%;
+        min-width: 0;
+        min-height: 34px;
+        height: 34px;
+        padding: 5px 7px;
+        border-radius: 9px;
+        font-size: 10px;
+        gap: 4px;
+    }
+
+    .info-modal-final .info-whatsapp-button svg,
+    .info-modal-final .info-catalog-button svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .info-modal-final .info-whatsapp-button span:last-child,
+    .info-modal-final .info-catalog-button span:last-child {
+        font-size: 12px;
+    }
+
+    /* Mantiene "Ir al inicio" en verde */
+    .info-modal-final .info-catalog-button,
+    .info-modal-final .info-catalog-button span {
+        color: #31543b !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .info-modal-final .info-modal-footer {
+        grid-template-columns: 34px minmax(0, 1fr);
+        column-gap: 8px;
+        row-gap: 8px;
+        padding: 9px 10px;
+    }
+
+    .info-modal-final .info-footer-icon {
+        width: 31px;
+        height: 31px;
+    }
+
+    .info-modal-final .info-footer-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .info-modal-final .info-footer-copy strong {
+        font-size: 10.5px;
+    }
+
+    .info-modal-final .info-footer-copy span {
+        font-size: 8px;
+    }
+
+    .info-modal-final .info-modal-actions {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    .info-modal-final .info-whatsapp-button,
+    .info-modal-final .info-catalog-button {
+        min-height: 32px;
+        height: 32px;
+        padding: 4px 5px;
+        font-size: 9.5px;
+        border-radius: 8px;
+    }
+
+    .info-modal-final .info-whatsapp-button svg,
+    .info-modal-final .info-catalog-button svg {
+        width: 15px;
+        height: 15px;
+    }
+
+    .info-modal-final .info-whatsapp-button span:last-child,
+    .info-modal-final .info-catalog-button span:last-child {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 380px) {
+    .info-modal-final .info-modal-footer {
+        grid-template-columns: 31px minmax(0, 1fr);
+        column-gap: 7px;
+        row-gap: 7px;
+        padding: 8px;
+    }
+
+    .info-modal-final .info-footer-icon {
+        width: 29px;
+        height: 29px;
+    }
+
+    .info-modal-final .info-footer-copy strong {
+        font-size: 10px;
+    }
+
+    .info-modal-final .info-footer-copy span {
+        font-size: 7.5px;
+    }
+
+    .info-modal-final .info-modal-actions {
+        gap: 5px;
+    }
+
+    .info-modal-final .info-whatsapp-button,
+    .info-modal-final .info-catalog-button {
+        min-height: 30px;
+        height: 30px;
+        padding: 3px 4px;
+        font-size: 9px;
+    }
+}
