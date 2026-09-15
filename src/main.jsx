@@ -309,7 +309,13 @@ ${lines.join("\n")}
   return (
     <div className="app">
       <aside className="sidebar">
-        <div className="side-title">CATEGORÍAS</div>
+        <div className="side-title-row">
+          <div className="side-title">CATEGORÍAS</div>
+          <div className="category-scroll-hint" aria-hidden="true">
+            <span>Desliza para más categorías</span>
+            <ChevronRight size={16} />
+          </div>
+        </div>
         <div className="side-line" />
         <nav>
           <button
@@ -331,10 +337,6 @@ ${lines.join("\n")}
               </button>
             ))}
         </nav>
-        <div className="category-scroll-hint" aria-hidden="true">
-          <span>Desliza para ver más categorías</span>
-          <ChevronRight size={19} />
-        </div>
         <div className="side-tag">Tu distribuidora<br />de confianza</div>
       </aside>
 
@@ -687,7 +689,12 @@ ${lines.join("\n")}
 
                     <div className="payment-logo-item">
                       <span className="payment-logo"><CreditCard size={19} /></span>
-                      <span>Tarjetas<br />débito y crédito</span>
+                      <span>Tarjetas débito</span>
+                    </div>
+
+                    <div className="payment-logo-item">
+                      <span className="payment-logo"><CreditCard size={19} /></span>
+                      <span>Tarjetas crédito</span>
                     </div>
 
                     <div className="payment-logo-item">
